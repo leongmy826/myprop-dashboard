@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Malaysian Property Investment Outlook 2025</title>
+    <meta name="description"
+        content="AI-powered dashboard to explore Malaysia's top property investment opportunities in 2025." />
+    <!-- Open Graph (Facebook/LinkedIn) -->
+    <meta property="og:title" content="Malaysian Property Investment Outlook 2025" />
+    <meta property="og:description" content="AI-powered dashboard to explore Malaysia's top property investment opportunities in 2025." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://myprop.treeversehub.com" />
+    <meta property="og:type" content="website" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Malaysian Property Investment Outlook 2025" />
+    <meta name="twitter:description" content="AI-powered dashboard to explore Malaysia's top property investment opportunities in 2025." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +47,7 @@
             background-color: #FDFBF7;
             color: #4A4A4A;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -38,32 +57,40 @@
             height: 300px;
             max-height: 400px;
         }
+
         @media (min-width: 768px) {
             .chart-container {
                 height: 400px;
             }
         }
+
         .nav-button {
             transition: all 0.3s ease;
         }
+
         .nav-button.active {
             background-color: #A88B79;
             color: #FFFFFF;
         }
+
         .property-card {
             transition: all 0.3s ease;
             transform: translateY(0);
         }
+
         .property-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
         .content-section {
             display: none;
         }
+
         .content-section.active {
             display: block;
         }
+
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             border-left-color: #A88B79;
@@ -72,30 +99,39 @@
             height: 24px;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
+
         .btn-primary {
-            background-color: #A88B79; /* Warm accent color */
+            background-color: #A88B79;
+            /* Warm accent color */
             color: #FFFFFF;
             transition: background-color 0.3s ease;
         }
+
         .btn-primary:hover {
-            background-color: #8D6E63; /* Darker warm accent on hover */
+            background-color: #8D6E63;
+            /* Darker warm accent on hover */
         }
+
         input[type="text"],
         input[type="email"],
         textarea {
-            border-color: #E5E7EB; /* Light border for inputs */
+            border-color: #E5E7EB;
+            /* Light border for inputs */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         input[type="text"]:focus,
         input[type="email"]:focus,
         textarea:focus {
             border-color: #A88B79;
-            box-shadow: 0 0 0 3px rgba(168, 139, 121, 0.2); /* Subtle focus ring */
+            box-shadow: 0 0 0 3px rgba(168, 139, 121, 0.2);
+            /* Subtle focus ring */
             outline: none;
         }
 
@@ -103,56 +139,67 @@
         .chat-container {
             display: flex;
             flex-direction: column;
-            height: 500px; /* Fixed height for chat display */
+            height: 500px;
+            /* Fixed height for chat display */
             border: 1px solid #E5E7EB;
             border-radius: 0.75rem;
             overflow: hidden;
             background-color: #FFFFFF;
         }
+
         .chat-display {
             flex-grow: 1;
             padding: 1rem;
             overflow-y: auto;
             background-color: #FDFBF7;
         }
+
         .chat-message {
             margin-bottom: 0.75rem;
             display: flex;
         }
+
         .chat-message.user {
             justify-content: flex-end;
         }
+
         .chat-message.bot {
             justify-content: flex-start;
         }
+
         .chat-bubble {
             max-width: 80%;
             padding: 0.75rem 1rem;
             border-radius: 1.25rem;
             line-height: 1.4;
         }
+
         .chat-bubble.user {
             background-color: #A88B79;
             color: white;
             border-bottom-right-radius: 0.25rem;
         }
+
         .chat-bubble.bot {
             background-color: #E0E0E0;
             color: #4A4A4A;
             border-bottom-left-radius: 0.25rem;
         }
+
         .chat-input-area {
             display: flex;
             padding: 1rem;
             border-top: 1px solid #E5E7EB;
             background-color: #FFFFFF;
         }
+
         .chat-input-area input {
             flex-grow: 1;
             margin-right: 0.75rem;
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <!-- Header Disclaimer Banner -->
@@ -164,17 +211,31 @@
 
         <header class="text-center mb-12">
             <h1 class="text-3xl md:text-5xl font-bold text-[#A88B79] mb-2">Malaysian Property Outlook 2025</h1>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">An interactive guide to curated investment opportunities for the practical investor & owner-occupier.</p>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">An interactive guide to curated investment opportunities
+                for the practical investor & owner-occupier.</p>
         </header>
 
-        <nav class="flex justify-center mb-12 bg-white/50 backdrop-blur-sm p-2 rounded-xl shadow-sm border border-gray-200 sticky top-4 z-50">
-            <button data-target="subscribe" class="nav-button active px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Subscribe</button>
-            <button data-target="market" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Market Overview</button>
-            <button data-target="recommendations" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Property Insights</button>
-            <button data-target="comparison" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Comparative Analysis</button>
-            <button data-target="market-insights" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Market Insights</button>
-            <button data-target="agent-chat" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Talk to Agent</button>
-            <button data-target="conclusion" class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Conclusion</button>
+        <nav
+            class="flex justify-center mb-12 bg-white/50 backdrop-blur-sm p-2 rounded-xl shadow-sm border border-gray-200 sticky top-4 z-50">
+            <button data-target="subscribe"
+                class="nav-button active px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Subscribe</button>
+            <button data-target="market"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Market
+                Overview</button>
+            <button data-target="recommendations"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Property
+                Insights</button>
+            <button data-target="comparison"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Comparative
+                Analysis</button>
+            <button data-target="market-insights"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Market
+                Insights</button>
+            <button data-target="agent-chat"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Talk to
+                Agent</button>
+            <button data-target="conclusion"
+                class="nav-button px-4 py-2 text-sm sm:text-base font-medium text-gray-700 rounded-lg">Conclusion</button>
         </nav>
 
         <main>
@@ -183,47 +244,65 @@
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <!-- Hero Section -->
                     <section class="text-center mb-16">
-                        <h1 class="text-4xl md:text-6xl font-bold text-[#A88B79] leading-tight mb-4">Unlock Exclusive Malaysian Property Insights</h1>
-                        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Subscribe to our newsletter for curated investment opportunities, market trends, and expert analysis delivered directly to your inbox.</p>
+                        <h1 class="text-4xl md:text-6xl font-bold text-[#A88B79] leading-tight mb-4">Unlock Exclusive
+                            Malaysian Property Insights</h1>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Subscribe to our newsletter for
+                            curated investment opportunities, market trends, and expert analysis delivered directly to
+                            your inbox.</p>
                     </section>
 
                     <!-- Features Section -->
                     <section class="mb-16 max-w-4xl mx-auto">
                         <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-8">What You'll Get:</h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
+                            <div
+                                class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
                                 <span class="text-5xl mb-4">📈</span>
                                 <h3 class="text-xl font-semibold text-gray-700 mb-2">Market Trends</h3>
-                                <p class="text-gray-600">Stay ahead with real-time updates on property values, rental yields, and economic forecasts.</p>
+                                <p class="text-gray-600">Stay ahead with real-time updates on property values, rental
+                                    yields, and economic forecasts.</p>
                             </div>
-                            <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
+                            <div
+                                class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
                                 <span class="text-5xl mb-4">📍</span>
                                 <h3 class="text-xl font-semibold text-gray-700 mb-2">Curated Opportunities</h3>
-                                <p class="text-gray-600">Receive hand-picked property recommendations tailored for practical investors and owner-occupiers.</p>
+                                <p class="text-gray-600">Receive hand-picked property recommendations tailored for
+                                    practical investors and owner-occupiers.</p>
                             </div>
-                            <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
+                            <div
+                                class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
                                 <span class="text-5xl mb-4">💡</span>
                                 <h3 class="text-xl font-semibold text-gray-700 mb-2">Expert Analysis</h3>
-                                <p class="text-gray-600">Gain insights from seasoned property specialists on long-term value and cash flow potential.</p>
+                                <p class="text-gray-600">Gain insights from seasoned property specialists on long-term
+                                    value and cash flow potential.</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Landing Form Section -->
-                    <section class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto">
-                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">Join Our Community</h2>
-                        <p class="text-gray-600 text-center mb-8">Sign up today and start making smarter property investment decisions.</p>
-                        
+                    <section
+                        class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 max-w-2xl mx-auto">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">Join Our Community
+                        </h2>
+                        <p class="text-gray-600 text-center mb-8">Sign up today and start making smarter property
+                            investment decisions.</p>
+
                         <form id="subscription-form" class="space-y-6 mb-8">
                             <div>
                                 <label for="name" class="block text-gray-700 text-sm font-medium mb-2">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" placeholder="John Doe" required>
+                                <input type="text" id="name" name="name"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]"
+                                    placeholder="John Doe" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Your Email</label>
-                                <input type="email" id="email" name="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" placeholder="john.doe@example.com" required>
+                                <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Your
+                                    Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]"
+                                    placeholder="john.doe@example.com" required>
                             </div>
-                            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-lg flex items-center justify-center">
+                            <button type="submit"
+                                class="btn-primary w-full py-3 rounded-lg font-semibold text-lg flex items-center justify-center">
                                 <span id="form-spinner" class="spinner hidden mr-2"></span>
                                 Subscribe Now
                             </button>
@@ -233,14 +312,17 @@
                         <div class="text-center">
                             <p class="text-gray-700 mb-4">Or connect with us directly:</p>
                             <div class="flex justify-center gap-4">
-                                <a href="https://t.me/yourpropertycommunity" target="_blank" class="flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                                <a href="https://t.me/yourpropertycommunity" target="_blank"
+                                    class="flex items-center bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
                                     <span class="text-2xl mr-2">✈️</span> Join Telegram
                                 </a>
-                                <a href="https://chat.whatsapp.com/yourwhatsappgroup" target="_blank" class="flex items-center bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                <a href="https://chat.whatsapp.com/yourwhatsappgroup" target="_blank"
+                                    class="flex items-center bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
                                     <span class="text-2xl mr-2">💬</span> Join WhatsApp
                                 </a>
                             </div>
-                            <p class="text-gray-500 text-xs mt-4">*(Example links. Replace with your actual community links)*</p>
+                            <p class="text-gray-500 text-xs mt-4">*(Example links. Replace with your actual community
+                                links)*</p>
                         </div>
                     </section>
                 </div>
@@ -249,7 +331,9 @@
             <section id="market" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">2025 Market & Economic Dashboard</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">A stable economy and key infrastructure projects are the primary catalysts driving property value. Explore the foundational metrics shaping the 2025 real estate landscape.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">A stable economy and key infrastructure projects are the
+                        primary catalysts driving property value. Explore the foundational metrics shaping the 2025 real
+                        estate landscape.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
@@ -265,7 +349,7 @@
                         <p class="text-sm text-gray-500">(Stable)</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-center">
-                         <div class="text-4xl mb-2">🏘️</div>
+                        <div class="text-4xl mb-2">🏘️</div>
                         <h3 class="text-lg font-semibold text-gray-700">Rental Inflation</h3>
                         <p class="text-3xl font-bold text-[#A88B79]">Uptick</p>
                         <p class="text-sm text-gray-500">(Driving Core Inflation)</p>
@@ -273,26 +357,32 @@
                 </div>
 
                 <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100">
-                    <h3 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2">Key Infrastructure Catalysts</h3>
-                    <p class="text-center text-gray-600 mb-8">Click on a city to reveal the transformative projects enhancing connectivity and unlocking value.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2">Key Infrastructure
+                        Catalysts</h3>
+                    <p class="text-center text-gray-600 mb-8">Click on a city to reveal the transformative projects
+                        enhancing connectivity and unlocking value.</p>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                        <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50" data-city="kl">
+                        <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50"
+                            data-city="kl">
                             <span class="text-5xl">🏙️</span>
                             <h4 class="font-bold text-xl mt-2 text-gray-800">Kuala Lumpur</h4>
                             <p class="text-gray-500">Klang Valley Integration</p>
                         </div>
-                         <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50" data-city="jb">
+                        <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50"
+                            data-city="jb">
                             <span class="text-5xl">🌉</span>
                             <h4 class="font-bold text-xl mt-2 text-gray-800">Johor Bahru</h4>
                             <p class="text-gray-500">Cross-Border Connectivity</p>
                         </div>
-                         <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50" data-city="penang">
+                        <div class="city-info-trigger p-4 border-2 border-transparent rounded-lg cursor-pointer hover:bg-amber-50"
+                            data-city="penang">
                             <span class="text-5xl">🏝️</span>
                             <h4 class="font-bold text-xl mt-2 text-gray-800">Penang</h4>
                             <p class="text-gray-500">Economic Zone Expansion</p>
                         </div>
                     </div>
-                    <div id="city-info-display" class="mt-8 p-6 bg-[#FDFBF7] rounded-lg border border-gray-200 transition-all duration-500 ease-in-out opacity-0 h-0 overflow-hidden">
+                    <div id="city-info-display"
+                        class="mt-8 p-6 bg-[#FDFBF7] rounded-lg border border-gray-200 transition-all duration-500 ease-in-out opacity-0 h-0 overflow-hidden">
                         <h5 id="info-title" class="text-lg font-bold text-[#A88B79]"></h5>
                         <p id="info-description" class="text-gray-700 mt-2"></p>
                     </div>
@@ -300,31 +390,42 @@
             </section>
 
             <section id="recommendations" class="content-section">
-                 <div class="text-center mb-10">
+                <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Curated Investment Opportunities</h2>
-                    <p class="text-gray-600 max-w-3xl mx-auto">Explore three distinct properties, each selected for its strategic location, quality, and potential for positive cash flow in 2025. Click on a card to view detailed analysis.</p>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Explore three distinct properties, each selected for its
+                        strategic location, quality, and potential for positive cash flow in 2025. Click on a card to
+                        view detailed analysis.</p>
                 </div>
                 <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 </div>
             </section>
-            
-            <div id="property-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex items-center justify-center p-4">
-                <div id="modal-content" class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl p-6 sm:p-8 relative overflow-y-auto">
+
+            <div id="property-modal"
+                class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex items-center justify-center p-4">
+                <div id="modal-content"
+                    class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl p-6 sm:p-8 relative overflow-y-auto">
                 </div>
             </div>
 
             <section id="comparison" class="content-section">
-                 <div class="text-center mb-10">
+                <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Comparative Financial Analysis</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Directly compare the financial viability of each recommended property. Select a metric below to visualize how they stack up against each other.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Directly compare the financial viability of each
+                        recommended property. Select a metric below to visualize how they stack up against each other.
+                    </p>
                 </div>
                 <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
                     <div class="flex flex-wrap justify-center gap-2 mb-6">
-                        <button class="comparison-btn active bg-[#A88B79] text-white px-4 py-2 rounded-lg text-sm" data-metric="yield">Rental Yield (%)</button>
-                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm" data-metric="price">Target Price (MYR)</button>
-                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm" data-metric="rent">Rental Income (MYR)</button>
-                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm" data-metric="mortgage">Mortgage (MYR)</button>
-                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm" data-metric="gap">Cash Flow Gap (MYR)</button>
+                        <button class="comparison-btn active bg-[#A88B79] text-white px-4 py-2 rounded-lg text-sm"
+                            data-metric="yield">Rental Yield (%)</button>
+                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm"
+                            data-metric="price">Target Price (MYR)</button>
+                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm"
+                            data-metric="rent">Rental Income (MYR)</button>
+                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm"
+                            data-metric="mortgage">Mortgage (MYR)</button>
+                        <button class="comparison-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm"
+                            data-metric="gap">Cash Flow Gap (MYR)</button>
                     </div>
                     <div class="chart-container">
                         <canvas id="comparisonChart"></canvas>
@@ -335,15 +436,21 @@
             <section id="market-insights" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Market Trend Analysis ✨</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Ask our AI property specialist about current or projected market trends in Malaysia. For example: "What are the key trends affecting residential properties in Kuala Lumpur for 2025?"</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Ask our AI property specialist about current or projected
+                        market trends in Malaysia. For example: "What are the key trends affecting residential
+                        properties in Kuala Lumpur for 2025?"</p>
                 </div>
                 <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100 max-w-3xl mx-auto">
-                    <textarea id="trend-query-input" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#A88B79] focus:border-[#A88B79] mb-4 h-32 resize-y" placeholder="e.g., What are the investment prospects for landed properties in Penang in 2025?"></textarea>
-                    <button id="analyze-trends-btn" class="w-full bg-[#A88B79] text-white py-3 rounded-lg font-semibold hover:bg-[#8D6E63] transition-colors flex items-center justify-center">
+                    <textarea id="trend-query-input"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#A88B79] focus:border-[#A88B79] mb-4 h-32 resize-y"
+                        placeholder="e.g., What are the investment prospects for landed properties in Penang in 2025?"></textarea>
+                    <button id="analyze-trends-btn"
+                        class="w-full bg-[#A88B79] text-white py-3 rounded-lg font-semibold hover:bg-[#8D6E63] transition-colors flex items-center justify-center">
                         <span id="analyze-trends-spinner" class="spinner hidden mr-2"></span>
                         Analyze Trends ✨
                     </button>
-                    <div id="trend-analysis-output" class="mt-6 p-4 bg-[#FDFBF7] border border-gray-200 rounded-lg text-gray-700 min-h-[100px] flex items-center justify-center text-center">
+                    <div id="trend-analysis-output"
+                        class="mt-6 p-4 bg-[#FDFBF7] border border-gray-200 rounded-lg text-gray-700 min-h-[100px] flex items-center justify-center text-center">
                         Your market trend analysis will appear here.
                     </div>
                 </div>
@@ -353,45 +460,61 @@
             <section id="agent-chat" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Talk to Our AI Agent 🤖</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Ask quick questions about properties or investment. If you need more personalized assistance, you can request a follow-up from a human agent.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Ask quick questions about properties or investment. If
+                        you need more personalized assistance, you can request a follow-up from a human agent.</p>
                 </div>
                 <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100 max-w-3xl mx-auto">
                     <div class="chat-container mb-4">
                         <div id="chat-display" class="chat-display">
                             <div class="chat-message bot">
-                                <div class="chat-bubble bot">Hello! How can I assist you with Malaysian property inquiries today?</div>
+                                <div class="chat-bubble bot">Hello! How can I assist you with Malaysian property
+                                    inquiries today?</div>
                             </div>
                         </div>
                         <div class="chat-input-area">
-                            <input type="text" id="chat-input" class="p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" placeholder="Type your message...">
-                            <button id="send-chat-btn" class="btn-primary px-4 py-2 rounded-lg font-semibold flex items-center justify-center">
+                            <input type="text" id="chat-input"
+                                class="p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]"
+                                placeholder="Type your message...">
+                            <button id="send-chat-btn"
+                                class="btn-primary px-4 py-2 rounded-lg font-semibold flex items-center justify-center">
                                 <span id="chat-spinner" class="spinner hidden mr-2"></span>
                                 Send
                             </button>
                         </div>
                     </div>
 
-                    <div id="agent-follow-up-section" class="hidden mt-6 p-6 bg-[#FDFBF7] border border-gray-200 rounded-lg">
+                    <div id="agent-follow-up-section"
+                        class="hidden mt-6 p-6 bg-[#FDFBF7] border border-gray-200 rounded-lg">
                         <h3 class="text-xl font-bold text-gray-800 text-center mb-4">Request Agent Follow-up</h3>
-                        <p class="text-gray-600 text-center mb-6">It looks like you need more personalized assistance. Please provide your details, and a property agent will get in touch with you shortly.</p>
+                        <p class="text-gray-600 text-center mb-6">It looks like you need more personalized assistance.
+                            Please provide your details, and a property agent will get in touch with you shortly.</p>
                         <form id="follow-up-form" class="space-y-4">
                             <div>
-                                <label for="follow-up-name" class="block text-gray-700 text-sm font-medium mb-2">Your Name</label>
-                                <input type="text" id="follow-up-name" name="name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" required>
+                                <label for="follow-up-name" class="block text-gray-700 text-sm font-medium mb-2">Your
+                                    Name</label>
+                                <input type="text" id="follow-up-name" name="name"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" required>
                             </div>
                             <div>
-                                <label for="follow-up-email" class="block text-gray-700 text-sm font-medium mb-2">Your Email</label>
-                                <input type="email" id="follow-up-email" name="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" required>
+                                <label for="follow-up-email" class="block text-gray-700 text-sm font-medium mb-2">Your
+                                    Email</label>
+                                <input type="email" id="follow-up-email" name="email"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]" required>
                             </div>
                             <div>
-                                <label for="follow-up-phone" class="block text-gray-700 text-sm font-medium mb-2">Phone Number</label>
-                                <input type="text" id="follow-up-phone" name="phone" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]">
+                                <label for="follow-up-phone" class="block text-gray-700 text-sm font-medium mb-2">Phone
+                                    Number</label>
+                                <input type="text" id="follow-up-phone" name="phone"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79]">
                             </div>
                             <div>
-                                <label for="follow-up-message" class="block text-gray-700 text-sm font-medium mb-2">Your Query Summary</label>
-                                <textarea id="follow-up-message" name="message" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79] h-24 resize-y"></textarea>
+                                <label for="follow-up-message" class="block text-gray-700 text-sm font-medium mb-2">Your
+                                    Query Summary</label>
+                                <textarea id="follow-up-message" name="message"
+                                    class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#A88B79] h-24 resize-y"></textarea>
                             </div>
-                            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold flex items-center justify-center">
+                            <button type="submit"
+                                class="btn-primary w-full py-3 rounded-lg font-semibold flex items-center justify-center">
                                 <span id="follow-up-spinner" class="spinner hidden mr-2"></span>
                                 Submit Request
                             </button>
@@ -403,26 +526,39 @@
                     </button>
                 </div>
             </section>
-            
+
             <section id="conclusion" class="content-section">
-                 <div class="text-center mb-10">
+                <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Strategic Investment Summary</h2>
-                     <p class="text-gray-600 max-w-3xl mx-auto">Key takeaways for the practical investor navigating the 2025 Malaysian property market.</p>
+                    <p class="text-gray-600 max-w-3xl mx-auto">Key takeaways for the practical investor navigating the
+                        2025 Malaysian property market.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 max-w-4xl mx-auto space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span class="text-2xl mr-3">📍</span>Focus on Strategic Growth Corridors</h3>
-                        <p class="text-gray-700">The analysis consistently proves that properties located near major infrastructure projects (LRT3, RTS Link, Mutiara Line) are poised to outperform the general market. Investing in these government-backed growth areas mitigates risk and maximizes appreciation potential.</p>
+                        <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span
+                                class="text-2xl mr-3">📍</span>Focus on Strategic Growth Corridors</h3>
+                        <p class="text-gray-700">The analysis consistently proves that properties located near major
+                            infrastructure projects (LRT3, RTS Link, Mutiara Line) are poised to outperform the general
+                            market. Investing in these government-backed growth areas mitigates risk and maximizes
+                            appreciation potential.</p>
                     </div>
                     <hr class="border-gray-200">
                     <div>
-                         <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span class="text-2xl mr-3">💼</span>Prioritize Professional Management & Amenities</h3>
-                         <p class="text-gray-700">Urban preferences are shifting towards integrated "live-work-play" ecosystems. Developments with comprehensive amenities and reputable management attract higher-quality tenants, ensure better upkeep, and lead to more stable rental yields and higher occupancy rates.</p>
+                        <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span
+                                class="text-2xl mr-3">💼</span>Prioritize Professional Management & Amenities</h3>
+                        <p class="text-gray-700">Urban preferences are shifting towards integrated "live-work-play"
+                            ecosystems. Developments with comprehensive amenities and reputable management attract
+                            higher-quality tenants, ensure better upkeep, and lead to more stable rental yields and
+                            higher occupancy rates.</p>
                     </div>
-                     <hr class="border-gray-200">
+                    <hr class="border-gray-200">
                     <div>
-                         <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span class="text-2xl mr-3">💰</span>Leverage Favorable Financial Conditions</h3>
-                         <p class="text-gray-700">With a stable OPR ensuring predictable financing costs and rising rental inflation indicating strong demand, 2025 offers a prime opportunity. The curated properties demonstrate that achieving positive cash flow, even if marginal initially, is a realistic goal, setting a strong foundation for long-term investment success.</p>
+                        <h3 class="text-xl font-semibold text-[#A88B79] mb-2 flex items-center"><span
+                                class="text-2xl mr-3">💰</span>Leverage Favorable Financial Conditions</h3>
+                        <p class="text-gray-700">With a stable OPR ensuring predictable financing costs and rising
+                            rental inflation indicating strong demand, 2025 offers a prime opportunity. The curated
+                            properties demonstrate that achieving positive cash flow, even if marginal initially, is a
+                            realistic goal, setting a strong foundation for long-term investment success.</p>
                     </div>
                 </div>
             </section>
@@ -434,155 +570,157 @@
             <p>&copy; 2025 Property Insights Malaysia. All rights reserved.</p>
             <p class="mt-1">APDL No.: [Insert APDL Number Here for Actual Projects]</p>
             <div class="flex justify-center gap-4 mt-2">
-                <a href="https://t.me/yourpropertycommunity" target="_blank" class="text-blue-500 hover:underline">Telegram Community</a>
-                <a href="https://chat.whatsapp.com/yourwhatsappgroup" target="_blank" class="text-green-500 hover:underline">WhatsApp Group</a>
+                <a href="https://t.me/yourpropertycommunity" target="_blank"
+                    class="text-blue-500 hover:underline">Telegram Community</a>
+                <a href="https://chat.whatsapp.com/yourwhatsappgroup" target="_blank"
+                    class="text-green-500 hover:underline">WhatsApp Group</a>
             </div>
         </footer>
 
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-    const propertyData = [
-        {
-            id: 'uptown',
-            name: 'Uptown Residences',
-            city: 'Kuala Lumpur',
-            location: 'Damansara Utama',
-            price: 595000,
-            type: 'Serviced Apartment',
-            icon: '🏙️',
-            yield: 5.83,
-            rent: 2900,
-            mortgage: 2875,
-            gap: 25,
-            rationale: {
-                suitability: 'Ideal for personal use or rental, located in a thriving commercial hub attracting professionals and expatriates. Its compact size aligns with market trends for smaller, convenient homes.',
-                developer: 'Developed by the highly reputable See Hoy Chan Sdn. Berhad Group, known for quality and sustainable communities, ensuring long-term value and excellent maintenance.',
-                accessibility: 'Exceptional connectivity, significantly enhanced by the upcoming LRT3 line (operational Sep 2025) with an interchange at nearby Bandar Utama, drastically improving commutes.',
-                community: 'A mature, safe, and vibrant neighborhood with top-tier amenities like One Utama Shopping Centre. The environment is clean, well-maintained, and highly desirable.',
-                safety: 'Benefits from both multi-tier security within the residence and 24/7 patrols by the Bandar Utama Auxiliary Police, ensuring a high level of safety.',
-                cashflow: 'Strong rental demand is projected to yield positive cash flow. The completion of LRT3 is expected to further boost rental rates and occupancy.',
-                opportunity: 'Investing before the full market impact of the new LRT3 line is priced in offers a strategic advantage for capital appreciation in a supply-constrained area.'
-            }
-        },
-        {
-            id: 'twin',
-            name: 'Twin Tower Residence',
-            city: 'Johor Bahru',
-            location: 'Bukit Chagar',
-            price: 700000,
-            type: 'Serviced Apartment',
-            icon: '🌉',
-            yield: 6.86,
-            rent: 4000,
-            mortgage: 3385,
-            gap: 615,
-            rationale: {
-                suitability: 'Perfect for cross-border commuters or those seeking high rental returns. Its proximity to the CIQ and future RTS Link to Singapore creates immense, guaranteed rental demand.',
-                developer: 'Developed by SKS Group, a major player with extensive experience in large-scale hotel and commercial projects, ensuring a quality build and understanding of hospitality standards.',
-                accessibility: 'Unparalleled accessibility. It is marketed as the closest condo to the JB CIQ and will be a stone\'s throw from the RTS Link station, offering a 5-minute journey to Singapore.',
-                community: 'Located in a rapidly transforming hub driven by the RTS and Johor-Singapore Special Economic Zone (JS-SEZ). Close to major malls, eateries, and a planned integrated ecosystem.',
-                safety: 'Features multi-tier security. The area has a high police presence due to its international gateway status, and the JS-SEZ development plan emphasizes creating a secure environment.',
-                cashflow: 'Projected to deliver excellent cash flow, driven by continuous high demand from Malaysian professionals working in Singapore. The rental yield is among the highest.',
-                opportunity: 'This is a prime opportunity to capitalize on the RTS Link before its full operation in 2026. The project will fundamentally change cross-border dynamics, leading to significant property value surges.'
-            }
-        },
-        {
-            id: 'iconic',
-            name: 'Iconic Regency',
-            city: 'Penang',
-            location: 'Bayan Lepas',
-            price: 580000,
-            type: 'Serviced Residence',
-            icon: '🏝️',
-            yield: 6.21,
-            rent: 3000,
-            mortgage: 2805,
-            gap: 195,
-            rationale: {
-                suitability: 'Strategically located for professionals in the Bayan Lepas FIZ and airport. The fully furnished units with resort-style facilities are perfect for both long-term living and lucrative short/long-term rentals.',
-                developer: 'Developed by Iconic Development Sdn Bhd and managed by professional entities like Iconic Hotel. Positive reviews highlight excellent upkeep and service, crucial for a serviced residence.',
-                accessibility: 'Exceptional access to the Penang International Airport and Bayan Lepas FIZ. The new Mutiara Line LRT, now under construction, will traverse the area, boosting future connectivity.',
-                community: 'A dynamic area set to grow with the Silicon Island development. It offers a self-sufficient lifestyle with abundant local food options and amenities. A police station is directly opposite.',
-                safety: 'The residence provides 24-hour security, and the immediate area benefits from the visible presence of a police station, ensuring a high sense of safety.',
-                cashflow: 'Strong rental demand from the nearby industrial zone and airport professionals ensures robust cash flow potential, supported by its fully-furnished, ready-to-rent status.',
-                opportunity: 'Investing now allows you to get in on the ground floor of growth spurred by the Mutiara Line LRT and the massive Silicon Island project, which will create ~220,000 jobs, driving housing demand.'
-            }
-        }
-    ];
-
-    const cityInfo = {
-        kl: {
-            title: 'LRT Shah Alam Line (LRT3)',
-            description: 'Set for completion and operation by September 30, 2025, this 37.8km automated rail line will connect high-density areas like Bandar Utama, Shah Alam, and Klang, directly contributing to traffic alleviation and economic stimulation around its 25 stations.'
-        },
-        jb: {
-            title: 'Johor Bahru-Singapore RTS Link',
-            description: 'With train testing commencing late 2025, this 4km link will connect JB to Singapore in just five minutes. It is a game-changer for cross-border travel, expected to dramatically alleviate Causeway congestion and profoundly boost Johor\'s property market, especially around the Bukit Chagar station.'
-        },
-        penang: {
-            title: 'Mutiara Line LRT & Silicon Island',
-            description: 'Construction began in Jan 2025 on the LRT line connecting George Town to Bayan Lepas. This runs parallel to the development of Silicon Island, a new tech hub projected to create 220,000 jobs. Together, these projects will ignite demand for housing and drive significant economic growth in the region.'
-        }
-    };
-
-    const navButtons = document.querySelectorAll('.nav-button');
-    const contentSections = document.querySelectorAll('.content-section');
-
-    navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const targetId = button.dataset.target;
-            contentSections.forEach(section => {
-                if (section.id === targetId) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
+            const propertyData = [
+                {
+                    id: 'uptown',
+                    name: 'Uptown Residences',
+                    city: 'Kuala Lumpur',
+                    location: 'Damansara Utama',
+                    price: 595000,
+                    type: 'Serviced Apartment',
+                    icon: '🏙️',
+                    yield: 5.83,
+                    rent: 2900,
+                    mortgage: 2875,
+                    gap: 25,
+                    rationale: {
+                        suitability: 'Ideal for personal use or rental, located in a thriving commercial hub attracting professionals and expatriates. Its compact size aligns with market trends for smaller, convenient homes.',
+                        developer: 'Developed by the highly reputable See Hoy Chan Sdn. Berhad Group, known for quality and sustainable communities, ensuring long-term value and excellent maintenance.',
+                        accessibility: 'Exceptional connectivity, significantly enhanced by the upcoming LRT3 line (operational Sep 2025) with an interchange at nearby Bandar Utama, drastically improving commutes.',
+                        community: 'A mature, safe, and vibrant neighborhood with top-tier amenities like One Utama Shopping Centre. The environment is clean, well-maintained, and highly desirable.',
+                        safety: 'Benefits from both multi-tier security within the residence and 24/7 patrols by the Bandar Utama Auxiliary Police, ensuring a high level of safety.',
+                        cashflow: 'Strong rental demand is projected to yield positive cash flow. The completion of LRT3 is expected to further boost rental rates and occupancy.',
+                        opportunity: 'Investing before the full market impact of the new LRT3 line is priced in offers a strategic advantage for capital appreciation in a supply-constrained area.'
+                    }
+                },
+                {
+                    id: 'twin',
+                    name: 'Twin Tower Residence',
+                    city: 'Johor Bahru',
+                    location: 'Bukit Chagar',
+                    price: 700000,
+                    type: 'Serviced Apartment',
+                    icon: '🌉',
+                    yield: 6.86,
+                    rent: 4000,
+                    mortgage: 3385,
+                    gap: 615,
+                    rationale: {
+                        suitability: 'Perfect for cross-border commuters or those seeking high rental returns. Its proximity to the CIQ and future RTS Link to Singapore creates immense, guaranteed rental demand.',
+                        developer: 'Developed by SKS Group, a major player with extensive experience in large-scale hotel and commercial projects, ensuring a quality build and understanding of hospitality standards.',
+                        accessibility: 'Unparalleled accessibility. It is marketed as the closest condo to the JB CIQ and will be a stone\'s throw from the RTS Link station, offering a 5-minute journey to Singapore.',
+                        community: 'Located in a rapidly transforming hub driven by the RTS and Johor-Singapore Special Economic Zone (JS-SEZ). Close to major malls, eateries, and a planned integrated ecosystem.',
+                        safety: 'Features multi-tier security. The area has a high police presence due to its international gateway status, and the JS-SEZ development plan emphasizes creating a secure environment.',
+                        cashflow: 'Projected to deliver excellent cash flow, driven by continuous high demand from Malaysian professionals working in Singapore. The rental yield is among the highest.',
+                        opportunity: 'This is a prime opportunity to capitalize on the RTS Link before its full operation in 2026. The project will fundamentally change cross-border dynamics, leading to significant property value surges.'
+                    }
+                },
+                {
+                    id: 'iconic',
+                    name: 'Iconic Regency',
+                    city: 'Penang',
+                    location: 'Bayan Lepas',
+                    price: 580000,
+                    type: 'Serviced Residence',
+                    icon: '🏝️',
+                    yield: 6.21,
+                    rent: 3000,
+                    mortgage: 2805,
+                    gap: 195,
+                    rationale: {
+                        suitability: 'Strategically located for professionals in the Bayan Lepas FIZ and airport. The fully furnished units with resort-style facilities are perfect for both long-term living and lucrative short/long-term rentals.',
+                        developer: 'Developed by Iconic Development Sdn Bhd and managed by professional entities like Iconic Hotel. Positive reviews highlight excellent upkeep and service, crucial for a serviced residence.',
+                        accessibility: 'Exceptional access to the Penang International Airport and Bayan Lepas FIZ. The new Mutiara Line LRT, now under construction, will traverse the area, boosting future connectivity.',
+                        community: 'A dynamic area set to grow with the Silicon Island development. It offers a self-sufficient lifestyle with abundant local food options and amenities. A police station is directly opposite.',
+                        safety: 'The residence provides 24-hour security, and the immediate area benefits from the visible presence of a police station, ensuring a high sense of safety.',
+                        cashflow: 'Strong rental demand from the nearby industrial zone and airport professionals ensures robust cash flow potential, supported by its fully-furnished, ready-to-rent status.',
+                        opportunity: 'Investing now allows you to get in on the ground floor of growth spurred by the Mutiara Line LRT and the massive Silicon Island project, which will create ~220,000 jobs, driving housing demand.'
+                    }
                 }
+            ];
+
+            const cityInfo = {
+                kl: {
+                    title: 'LRT Shah Alam Line (LRT3)',
+                    description: 'Set for completion and operation by September 30, 2025, this 37.8km automated rail line will connect high-density areas like Bandar Utama, Shah Alam, and Klang, directly contributing to traffic alleviation and economic stimulation around its 25 stations.'
+                },
+                jb: {
+                    title: 'Johor Bahru-Singapore RTS Link',
+                    description: 'With train testing commencing late 2025, this 4km link will connect JB to Singapore in just five minutes. It is a game-changer for cross-border travel, expected to dramatically alleviate Causeway congestion and profoundly boost Johor\'s property market, especially around the Bukit Chagar station.'
+                },
+                penang: {
+                    title: 'Mutiara Line LRT & Silicon Island',
+                    description: 'Construction began in Jan 2025 on the LRT line connecting George Town to Bayan Lepas. This runs parallel to the development of Silicon Island, a new tech hub projected to create 220,000 jobs. Together, these projects will ignite demand for housing and drive significant economic growth in the region.'
+                }
+            };
+
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const targetId = button.dataset.target;
+                    contentSections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
             });
-        });
-    });
 
-    const cityTriggers = document.querySelectorAll('.city-info-trigger');
-    const infoDisplay = document.getElementById('city-info-display');
-    const infoTitle = document.getElementById('info-title');
-    const infoDescription = document.getElementById('info-description');
-    let activeCity = null;
-    
-    cityTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const cityKey = trigger.dataset.city;
-            
-            cityTriggers.forEach(t => t.classList.remove('border-amber-400', 'bg-amber-50'));
-            trigger.classList.add('border-amber-400', 'bg-amber-50');
+            const cityTriggers = document.querySelectorAll('.city-info-trigger');
+            const infoDisplay = document.getElementById('city-info-display');
+            const infoTitle = document.getElementById('info-title');
+            const infoDescription = document.getElementById('info-description');
+            let activeCity = null;
 
-            if (activeCity === cityKey) {
-                infoDisplay.style.height = '0';
-                infoDisplay.style.opacity = '0';
-                infoDisplay.style.padding = '0';
-                activeCity = null;
-                 trigger.classList.remove('border-amber-400', 'bg-amber-50');
-            } else {
-                infoTitle.textContent = cityInfo[cityKey].title;
-                infoDescription.textContent = cityInfo[cityKey].description;
-                infoDisplay.style.height = infoDisplay.scrollHeight + 'px';
-                infoDisplay.style.opacity = '1';
-                infoDisplay.style.padding = '1.5rem';
-                activeCity = cityKey;
-            }
-        });
-    });
+            cityTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const cityKey = trigger.dataset.city;
+
+                    cityTriggers.forEach(t => t.classList.remove('border-amber-400', 'bg-amber-50'));
+                    trigger.classList.add('border-amber-400', 'bg-amber-50');
+
+                    if (activeCity === cityKey) {
+                        infoDisplay.style.height = '0';
+                        infoDisplay.style.opacity = '0';
+                        infoDisplay.style.padding = '0';
+                        activeCity = null;
+                        trigger.classList.remove('border-amber-400', 'bg-amber-50');
+                    } else {
+                        infoTitle.textContent = cityInfo[cityKey].title;
+                        infoDescription.textContent = cityInfo[cityKey].description;
+                        infoDisplay.style.height = infoDisplay.scrollHeight + 'px';
+                        infoDisplay.style.opacity = '1';
+                        infoDisplay.style.padding = '1.5rem';
+                        activeCity = cityKey;
+                    }
+                });
+            });
 
 
-    const propertyGrid = document.getElementById('property-grid');
-    propertyData.forEach(prop => {
-        const card = document.createElement('div');
-        card.className = 'property-card bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden cursor-pointer';
-        card.innerHTML = `
+            const propertyGrid = document.getElementById('property-grid');
+            propertyData.forEach(prop => {
+                const card = document.createElement('div');
+                card.className = 'property-card bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden cursor-pointer';
+                card.innerHTML = `
             <div class="p-6">
                 <div class="flex justify-between items-start">
                     <div>
@@ -607,51 +745,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 View Details
             </div>
         `;
-        card.addEventListener('click', () => openModal(prop.id));
-        propertyGrid.appendChild(card);
-    });
-
-    const modal = document.getElementById('property-modal');
-    const modalContent = document.getElementById('modal-content');
-    
-    async function callGeminiAPI(prompt, outputElement, spinnerElement, chatHistory = []) {
-        outputElement.textContent = '';
-        spinnerElement.classList.remove('hidden');
-
-        try {
-            const payload = { contents: chatHistory.concat([{ role: "user", parts: [{ text: prompt }] }]) };
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                card.addEventListener('click', () => openModal(prop.id));
+                propertyGrid.appendChild(card);
             });
-            const result = await response.json();
 
-            if (result.candidates && result.candidates.length > 0 &&
-                result.candidates[0].content && result.candidates[0].content.parts &&
-                result.candidates[0].content.parts.length > 0) {
-                const text = result.candidates[0].content.parts[0].text;
-                outputElement.textContent = text;
-                return text; // Return the generated text for chat history
-            } else {
-                outputElement.textContent = 'Error: Could not get a valid response from the AI. Please try again.';
-                return null;
+            const modal = document.getElementById('property-modal');
+            const modalContent = document.getElementById('modal-content');
+
+            async function callGeminiAPI(prompt, outputElement, spinnerElement, chatHistory = []) {
+                outputElement.textContent = '';
+                spinnerElement.classList.remove('hidden');
+
+                try {
+                    const payload = { contents: chatHistory.concat([{ role: "user", parts: [{ text: prompt }] }]) };
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        outputElement.textContent = text;
+                        return text; // Return the generated text for chat history
+                    } else {
+                        outputElement.textContent = 'Error: Could not get a valid response from the AI. Please try again.';
+                        return null;
+                    }
+                } catch (error) {
+                    console.error('Gemini API call failed:', error);
+                    outputElement.textContent = 'Error: Failed to connect to the AI service. Please check your network connection.';
+                    return null;
+                } finally {
+                    spinnerElement.classList.add('hidden');
+                }
             }
-        } catch (error) {
-            console.error('Gemini API call failed:', error);
-            outputElement.textContent = 'Error: Failed to connect to the AI service. Please check your network connection.';
-            return null;
-        } finally {
-            spinnerElement.classList.add('hidden');
-        }
-    }
 
-    function openModal(id) {
-        const prop = propertyData.find(p => p.id === id);
-        modalContent.innerHTML = `
+            function openModal(id) {
+                const prop = propertyData.find(p => p.id === id);
+                modalContent.innerHTML = `
             <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
@@ -695,272 +833,273 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        modal.classList.remove('hidden');
-        document.getElementById('close-modal').addEventListener('click', () => modal.classList.add('hidden'));
+                modal.classList.remove('hidden');
+                document.getElementById('close-modal').addEventListener('click', () => modal.classList.add('hidden'));
 
-        document.getElementById('get-deeper-insight-btn').addEventListener('click', () => {
-            const prompt = `As a Malaysian property specialist, provide a more in-depth investment outlook for a property with the following details, focusing on unique selling points, long-term appreciation factors, and potential risks. Property Name: ${prop.name}, Location: ${prop.location}, Type: ${prop.type}, Target Price: MYR ${prop.price}. Initial Rationale: Suitability: ${prop.rationale.suitability}. Opportunity: ${prop.rationale.opportunity}.`;
-            callGeminiAPI(prompt, document.getElementById('deeper-insight-output'), document.getElementById('insight-spinner'));
-        });
-    }
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
+                document.getElementById('get-deeper-insight-btn').addEventListener('click', () => {
+                    const prompt = `As a Malaysian property specialist, provide a more in-depth investment outlook for a property with the following details, focusing on unique selling points, long-term appreciation factors, and potential risks. Property Name: ${prop.name}, Location: ${prop.location}, Type: ${prop.type}, Target Price: MYR ${prop.price}. Initial Rationale: Suitability: ${prop.rationale.suitability}. Opportunity: ${prop.rationale.opportunity}.`;
+                    callGeminiAPI(prompt, document.getElementById('deeper-insight-output'), document.getElementById('insight-spinner'));
+                });
+            }
 
-    const ctx = document.getElementById('comparisonChart').getContext('2d');
-    let comparisonChart;
-    const chartMetrics = {
-        yield: { label: 'Estimated Rental Yield (%)', data: propertyData.map(p => p.yield), color: '#C3A696' },
-        price: { label: 'Target Price (MYR)', data: propertyData.map(p => p.price), color: '#A88B79' },
-        rent: { label: 'Monthly Rental Income (MYR)', data: propertyData.map(p => p.rent), color: '#8D6E63' },
-        mortgage: { label: 'Monthly Mortgage Payment (MYR)', data: propertyData.map(p => p.mortgage), color: '#795548' },
-        gap: { label: 'Monthly Cash Flow Gap (MYR)', data: propertyData.map(p => p.gap), color: '#5D4037' }
-    };
-    
-    function createOrUpdateChart(metric) {
-        const metricData = chartMetrics[metric];
-        if (comparisonChart) {
-            comparisonChart.data.datasets[0].data = metricData.data;
-            comparisonChart.data.datasets[0].label = metricData.label;
-            comparisonChart.data.datasets[0].backgroundColor = metricData.color;
-            comparisonChart.update();
-        } else {
-            comparisonChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: propertyData.map(p => p.name),
-                    datasets: [{
-                        label: metricData.label,
-                        data: metricData.data,
-                        backgroundColor: metricData.color,
-                        borderColor: metricData.color,
-                        borderWidth: 1,
-                        borderRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.y !== null) {
-                                        if (metric === 'yield') {
-                                           label += `${context.parsed.y}%`;
-                                        } else {
-                                           label += `MYR ${context.parsed.y.toLocaleString()}`;
-                                        }
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            grid: {
-                                color: '#E5E7EB'
-                            },
-                             ticks: {
-                                callback: function(value, index, ticks) {
-                                    if (metric === 'yield') return value + '%';
-                                    return 'MYR ' + value.toLocaleString();
-                                }
-                            }
-                        },
-                        x: {
-                             grid: {
-                                display: false
-                            }
-                        }
-                    }
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
                 }
             });
-        }
-    }
 
-    createOrUpdateChart('yield');
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            let comparisonChart;
+            const chartMetrics = {
+                yield: { label: 'Estimated Rental Yield (%)', data: propertyData.map(p => p.yield), color: '#C3A696' },
+                price: { label: 'Target Price (MYR)', data: propertyData.map(p => p.price), color: '#A88B79' },
+                rent: { label: 'Monthly Rental Income (MYR)', data: propertyData.map(p => p.rent), color: '#8D6E63' },
+                mortgage: { label: 'Monthly Mortgage Payment (MYR)', data: propertyData.map(p => p.mortgage), color: '#795548' },
+                gap: { label: 'Monthly Cash Flow Gap (MYR)', data: propertyData.map(p => p.gap), color: '#5D4037' }
+            };
 
-    document.querySelectorAll('.comparison-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.comparison-btn').forEach(b => {
-                b.classList.remove('active', 'bg-[#A88B79]', 'text-white');
-                b.classList.add('bg-gray-200', 'text-gray-700');
+            function createOrUpdateChart(metric) {
+                const metricData = chartMetrics[metric];
+                if (comparisonChart) {
+                    comparisonChart.data.datasets[0].data = metricData.data;
+                    comparisonChart.data.datasets[0].label = metricData.label;
+                    comparisonChart.data.datasets[0].backgroundColor = metricData.color;
+                    comparisonChart.update();
+                } else {
+                    comparisonChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: propertyData.map(p => p.name),
+                            datasets: [{
+                                label: metricData.label,
+                                data: metricData.data,
+                                backgroundColor: metricData.color,
+                                borderColor: metricData.color,
+                                borderWidth: 1,
+                                borderRadius: 5
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            if (context.parsed.y !== null) {
+                                                if (metric === 'yield') {
+                                                    label += `${context.parsed.y}%`;
+                                                } else {
+                                                    label += `MYR ${context.parsed.y.toLocaleString()}`;
+                                                }
+                                            }
+                                            return label;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    grid: {
+                                        color: '#E5E7EB'
+                                    },
+                                    ticks: {
+                                        callback: function (value, index, ticks) {
+                                            if (metric === 'yield') return value + '%';
+                                            return 'MYR ' + value.toLocaleString();
+                                        }
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            createOrUpdateChart('yield');
+
+            document.querySelectorAll('.comparison-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.comparison-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-[#A88B79]', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    e.target.classList.add('active', 'bg-[#A88B79]', 'text-white');
+                    e.target.classList.remove('bg-gray-200', 'text-gray-700');
+                    createOrUpdateChart(e.target.dataset.metric);
+                });
             });
-            e.target.classList.add('active', 'bg-[#A88B79]', 'text-white');
-            e.target.classList.remove('bg-gray-200', 'text-gray-700');
-            createOrUpdateChart(e.target.dataset.metric);
+
+            // Market Trend Analysis LLM Integration
+            const trendQueryInput = document.getElementById('trend-query-input');
+            const analyzeTrendsBtn = document.getElementById('analyze-trends-btn');
+            const analyzeTrendsSpinner = document.getElementById('analyze-trends-spinner');
+            const trendAnalysisOutput = document.getElementById('trend-analysis-output');
+
+            analyzeTrendsBtn.addEventListener('click', () => {
+                const query = trendQueryInput.value.trim();
+                if (query) {
+                    const prompt = `As a Malaysian property specialist, analyze the current and projected market trends for "${query}". Focus on factors like demand drivers, supply outlook, infrastructure impact, and economic indicators. Provide a concise summary.`;
+                    callGeminiAPI(prompt, trendAnalysisOutput, analyzeTrendsSpinner);
+                } else {
+                    trendAnalysisOutput.textContent = 'Please enter a query to analyze market trends.';
+                }
+            });
+
+            // Landing Form JavaScript
+            const form = document.getElementById('subscription-form');
+            const formMessage = document.getElementById('form-message');
+            const formSpinner = document.getElementById('form-spinner');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                formSpinner.classList.remove('hidden');
+                form.querySelector('button[type="submit"]').disabled = true;
+                formMessage.textContent = '';
+                formMessage.classList.remove('text-green-600', 'text-red-600');
+
+                // Simulate an API call or form submission delay
+                setTimeout(() => {
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+
+                    if (name && email) {
+                        // In a real application, this data would be sent to a CRM like Zoho.
+                        // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ name, email }) });
+                        formMessage.textContent = `Thank you, ${name}! Your subscription with ${email} has been received. In a real app, this data would be sent to our CRM.`;
+                        formMessage.classList.add('text-green-600');
+                        form.reset(); // Clear the form
+                    } else {
+                        formMessage.textContent = 'Please fill in all required fields.';
+                        formMessage.classList.add('text-red-600');
+                    }
+
+                    formSpinner.classList.add('hidden');
+                    form.querySelector('button[type="submit"]').disabled = false;
+                }, 1500); // Simulate 1.5 seconds delay
+            });
+
+            // Agent Chatbot JavaScript
+            const chatDisplay = document.getElementById('chat-display');
+            const chatInput = document.getElementById('chat-input');
+            const sendChatBtn = document.getElementById('send-chat-btn');
+            const chatSpinner = document.getElementById('chat-spinner');
+            const requestAgentBtn = document.getElementById('request-agent-btn');
+            const agentFollowUpSection = document.getElementById('agent-follow-up-section');
+            const followUpForm = document.getElementById('follow-up-form');
+            const followUpSpinner = document.getElementById('follow-up-spinner');
+            const followUpMessageOutput = document.getElementById('follow-up-message-output');
+
+            let agentChatHistory = []; // Stores chat history for the agent bot
+
+            function displayChatMessage(sender, message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message', sender);
+                const bubbleDiv = document.createElement('div');
+                bubbleDiv.classList.add('chat-bubble', sender);
+                bubbleDiv.textContent = message;
+                messageDiv.appendChild(bubbleDiv);
+                chatDisplay.appendChild(messageDiv);
+                chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to bottom
+            }
+
+            async function handleChatInput() {
+                const userMessage = chatInput.value.trim();
+                if (!userMessage) return;
+
+                displayChatMessage('user', userMessage);
+                agentChatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+                chatInput.value = ''; // Clear input immediately
+
+                // Keywords to trigger agent follow-up
+                const agentKeywords = ['speak to human', 'talk to agent', 'call me', 'contact me', 'more details', 'human agent', 'sales', 'appointment'];
+                const needsAgent = agentKeywords.some(keyword => userMessage.toLowerCase().includes(keyword));
+
+                if (needsAgent) {
+                    displayChatMessage('bot', "It sounds like you need to speak with a human agent. Please click the 'Request Agent Follow-up' button below, and we'll connect you.");
+                    requestAgentBtn.classList.remove('hidden');
+                    agentChatHistory.push({ role: 'model', parts: [{ text: "It sounds like you need to speak with a human agent. Please click the 'Request Agent Follow-up' button below, and we'll connect you." }] });
+                    return;
+                }
+
+                const botPrompt = `You are an AI property assistant for a Malaysian real estate company. Answer the user's question concisely and professionally based on typical property inquiries. If the user asks for direct contact with a human, or complex financial advice, suggest they use the "Request Agent Follow-up" button. User: "${userMessage}"`;
+
+                const botResponse = await callGeminiAPI(botPrompt, chatDisplay, chatSpinner, agentChatHistory);
+                if (botResponse) {
+                    displayChatMessage('bot', botResponse);
+                    agentChatHistory.push({ role: 'model', parts: [{ text: botResponse }] });
+                    // Re-check if bot's response also suggests agent follow-up
+                    if (agentKeywords.some(keyword => botResponse.toLowerCase().includes(keyword))) {
+                        requestAgentBtn.classList.remove('hidden');
+                    } else {
+                        requestAgentBtn.classList.add('hidden');
+                    }
+                }
+            }
+
+            sendChatBtn.addEventListener('click', handleChatInput);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleChatInput();
+                }
+            });
+
+            requestAgentBtn.addEventListener('click', () => {
+                document.getElementById('chat-input-area').classList.add('hidden'); // Hide chat input
+                requestAgentBtn.classList.add('hidden'); // Hide the request agent button
+                agentFollowUpSection.classList.remove('hidden'); // Show the follow-up form
+                // Pre-fill message with last few chat messages if possible
+                const lastMessages = agentChatHistory.slice(Math.max(0, agentChatHistory.length - 4)).map(msg => `${msg.role === 'user' ? 'You' : 'Agent'}: ${msg.parts[0].text}`).join('\n');
+                document.getElementById('follow-up-message').value = `Regarding: \n${lastMessages}\n\n[Please add your specific request here]`;
+            });
+
+            followUpForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                followUpSpinner.classList.remove('hidden');
+                followUpForm.querySelector('button[type="submit"]').disabled = true;
+                followUpMessageOutput.textContent = '';
+                followUpMessageOutput.classList.remove('text-green-600', 'text-red-600');
+
+                setTimeout(() => {
+                    const name = document.getElementById('follow-up-name').value;
+                    const email = document.getElementById('follow-up-email').value;
+                    const phone = document.getElementById('follow-up-phone').value;
+                    const message = document.getElementById('follow-up-message').value;
+
+                    if (name && email) {
+                        // In a real application, this data would be sent to a CRM.
+                        // Example: fetch('/api/agent-followup', { method: 'POST', body: JSON.stringify({ name, email, phone, message }) });
+                        followUpMessageOutput.textContent = `Thank you, ${name}! Your request has been sent. An agent will contact you at ${email} (or ${phone}) shortly. In a real app, this data would be sent to our CRM for follow-up.`;
+                        followUpMessageOutput.classList.add('text-green-600');
+                        followUpForm.reset(); // Clear the form
+                    } else {
+                        followUpMessageOutput.textContent = 'Please fill in your Name and Email.';
+                        followUpMessageOutput.classList.add('text-red-600');
+                    }
+
+                    followUpSpinner.classList.add('hidden');
+                    followUpForm.querySelector('button[type="submit"]').disabled = false;
+                }, 1500); // Simulate 1.5 seconds delay
+            });
+
         });
-    });
-
-    // Market Trend Analysis LLM Integration
-    const trendQueryInput = document.getElementById('trend-query-input');
-    const analyzeTrendsBtn = document.getElementById('analyze-trends-btn');
-    const analyzeTrendsSpinner = document.getElementById('analyze-trends-spinner');
-    const trendAnalysisOutput = document.getElementById('trend-analysis-output');
-
-    analyzeTrendsBtn.addEventListener('click', () => {
-        const query = trendQueryInput.value.trim();
-        if (query) {
-            const prompt = `As a Malaysian property specialist, analyze the current and projected market trends for "${query}". Focus on factors like demand drivers, supply outlook, infrastructure impact, and economic indicators. Provide a concise summary.`;
-            callGeminiAPI(prompt, trendAnalysisOutput, analyzeTrendsSpinner);
-        } else {
-            trendAnalysisOutput.textContent = 'Please enter a query to analyze market trends.';
-        }
-    });
-
-    // Landing Form JavaScript
-    const form = document.getElementById('subscription-form');
-    const formMessage = document.getElementById('form-message');
-    const formSpinner = document.getElementById('form-spinner');
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        formSpinner.classList.remove('hidden');
-        form.querySelector('button[type="submit"]').disabled = true;
-        formMessage.textContent = '';
-        formMessage.classList.remove('text-green-600', 'text-red-600');
-
-        // Simulate an API call or form submission delay
-        setTimeout(() => {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-
-            if (name && email) {
-                // In a real application, this data would be sent to a CRM like Zoho.
-                // Example: fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ name, email }) });
-                formMessage.textContent = `Thank you, ${name}! Your subscription with ${email} has been received. In a real app, this data would be sent to our CRM.`;
-                formMessage.classList.add('text-green-600');
-                form.reset(); // Clear the form
-            } else {
-                formMessage.textContent = 'Please fill in all required fields.';
-                formMessage.classList.add('text-red-600');
-            }
-
-            formSpinner.classList.add('hidden');
-            form.querySelector('button[type="submit"]').disabled = false;
-        }, 1500); // Simulate 1.5 seconds delay
-    });
-
-    // Agent Chatbot JavaScript
-    const chatDisplay = document.getElementById('chat-display');
-    const chatInput = document.getElementById('chat-input');
-    const sendChatBtn = document.getElementById('send-chat-btn');
-    const chatSpinner = document.getElementById('chat-spinner');
-    const requestAgentBtn = document.getElementById('request-agent-btn');
-    const agentFollowUpSection = document.getElementById('agent-follow-up-section');
-    const followUpForm = document.getElementById('follow-up-form');
-    const followUpSpinner = document.getElementById('follow-up-spinner');
-    const followUpMessageOutput = document.getElementById('follow-up-message-output');
-
-    let agentChatHistory = []; // Stores chat history for the agent bot
-
-    function displayChatMessage(sender, message) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('chat-message', sender);
-        const bubbleDiv = document.createElement('div');
-        bubbleDiv.classList.add('chat-bubble', sender);
-        bubbleDiv.textContent = message;
-        messageDiv.appendChild(bubbleDiv);
-        chatDisplay.appendChild(messageDiv);
-        chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to bottom
-    }
-
-    async function handleChatInput() {
-        const userMessage = chatInput.value.trim();
-        if (!userMessage) return;
-
-        displayChatMessage('user', userMessage);
-        agentChatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
-        chatInput.value = ''; // Clear input immediately
-
-        // Keywords to trigger agent follow-up
-        const agentKeywords = ['speak to human', 'talk to agent', 'call me', 'contact me', 'more details', 'human agent', 'sales', 'appointment'];
-        const needsAgent = agentKeywords.some(keyword => userMessage.toLowerCase().includes(keyword));
-
-        if (needsAgent) {
-            displayChatMessage('bot', "It sounds like you need to speak with a human agent. Please click the 'Request Agent Follow-up' button below, and we'll connect you.");
-            requestAgentBtn.classList.remove('hidden');
-            agentChatHistory.push({ role: 'model', parts: [{ text: "It sounds like you need to speak with a human agent. Please click the 'Request Agent Follow-up' button below, and we'll connect you." }] });
-            return;
-        }
-
-        const botPrompt = `You are an AI property assistant for a Malaysian real estate company. Answer the user's question concisely and professionally based on typical property inquiries. If the user asks for direct contact with a human, or complex financial advice, suggest they use the "Request Agent Follow-up" button. User: "${userMessage}"`;
-        
-        const botResponse = await callGeminiAPI(botPrompt, chatDisplay, chatSpinner, agentChatHistory);
-        if (botResponse) {
-            displayChatMessage('bot', botResponse);
-            agentChatHistory.push({ role: 'model', parts: [{ text: botResponse }] });
-            // Re-check if bot's response also suggests agent follow-up
-            if (agentKeywords.some(keyword => botResponse.toLowerCase().includes(keyword))) {
-                 requestAgentBtn.classList.remove('hidden');
-            } else {
-                 requestAgentBtn.classList.add('hidden');
-            }
-        }
-    }
-
-    sendChatBtn.addEventListener('click', handleChatInput);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            handleChatInput();
-        }
-    });
-
-    requestAgentBtn.addEventListener('click', () => {
-        document.getElementById('chat-input-area').classList.add('hidden'); // Hide chat input
-        requestAgentBtn.classList.add('hidden'); // Hide the request agent button
-        agentFollowUpSection.classList.remove('hidden'); // Show the follow-up form
-        // Pre-fill message with last few chat messages if possible
-        const lastMessages = agentChatHistory.slice(Math.max(0, agentChatHistory.length - 4)).map(msg => `${msg.role === 'user' ? 'You' : 'Agent'}: ${msg.parts[0].text}`).join('\n');
-        document.getElementById('follow-up-message').value = `Regarding: \n${lastMessages}\n\n[Please add your specific request here]`;
-    });
-
-    followUpForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        followUpSpinner.classList.remove('hidden');
-        followUpForm.querySelector('button[type="submit"]').disabled = true;
-        followUpMessageOutput.textContent = '';
-        followUpMessageOutput.classList.remove('text-green-600', 'text-red-600');
-
-        setTimeout(() => {
-            const name = document.getElementById('follow-up-name').value;
-            const email = document.getElementById('follow-up-email').value;
-            const phone = document.getElementById('follow-up-phone').value;
-            const message = document.getElementById('follow-up-message').value;
-
-            if (name && email) {
-                // In a real application, this data would be sent to a CRM.
-                // Example: fetch('/api/agent-followup', { method: 'POST', body: JSON.stringify({ name, email, phone, message }) });
-                followUpMessageOutput.textContent = `Thank you, ${name}! Your request has been sent. An agent will contact you at ${email} (or ${phone}) shortly. In a real app, this data would be sent to our CRM for follow-up.`;
-                followUpMessageOutput.classList.add('text-green-600');
-                followUpForm.reset(); // Clear the form
-            } else {
-                followUpMessageOutput.textContent = 'Please fill in your Name and Email.';
-                followUpMessageOutput.classList.add('text-red-600');
-            }
-
-            followUpSpinner.classList.add('hidden');
-            followUpForm.querySelector('button[type="submit"]').disabled = false;
-        }, 1500); // Simulate 1.5 seconds delay
-    });
-
-});
-</script>
+    </script>
 
 </body>
+
 </html>
